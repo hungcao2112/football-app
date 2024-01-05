@@ -13,6 +13,14 @@
 		110BFB982B47639C0021B151 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 110BFB972B47639C0021B151 /* Assets.xcassets */; };
 		110BFB9B2B47639C0021B151 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 110BFB992B47639C0021B151 /* LaunchScreen.storyboard */; };
 		110BFBA42B4764350021B151 /* MatchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110BFBA32B4764350021B151 /* MatchListViewController.swift */; };
+		110BFBA92B4771EC0021B151 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110BFBA82B4771EC0021B151 /* APIService.swift */; };
+		110BFBAD2B4774EF0021B151 /* MatchServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110BFBAC2B4774EF0021B151 /* MatchServiceProtocol.swift */; };
+		110BFBAF2B4775550021B151 /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110BFBAE2B4775550021B151 /* Match.swift */; };
+		110BFBB12B4776CD0021B151 /* MatchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110BFBB02B4776CD0021B151 /* MatchService.swift */; };
+		110BFBB42B477B9B0021B151 /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110BFBB32B477B9B0021B151 /* DependencyContainer.swift */; };
+		110BFBB72B477C480021B151 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110BFBB62B477C480021B151 /* APIConstants.swift */; };
+		110BFBBA2B477F330021B151 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110BFBB92B477F330021B151 /* Model.swift */; };
+		110BFBBD2B4780330021B151 /* DateFormatters+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110BFBBC2B4780330021B151 /* DateFormatters+Ext.swift */; };
 		58389D57A1E8EA70CE9842E7 /* Pods_football_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF03CD96F4100FCA2F70CD7C /* Pods_football_app.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +33,14 @@
 		110BFB9A2B47639C0021B151 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		110BFB9C2B47639C0021B151 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		110BFBA32B4764350021B151 /* MatchListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchListViewController.swift; sourceTree = "<group>"; };
+		110BFBA82B4771EC0021B151 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		110BFBAC2B4774EF0021B151 /* MatchServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchServiceProtocol.swift; sourceTree = "<group>"; };
+		110BFBAE2B4775550021B151 /* Match.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Match.swift; sourceTree = "<group>"; };
+		110BFBB02B4776CD0021B151 /* MatchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchService.swift; sourceTree = "<group>"; };
+		110BFBB32B477B9B0021B151 /* DependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyContainer.swift; sourceTree = "<group>"; };
+		110BFBB62B477C480021B151 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
+		110BFBB92B477F330021B151 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		110BFBBC2B4780330021B151 /* DateFormatters+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatters+Ext.swift"; sourceTree = "<group>"; };
 		7FB07ADA3C89C66C7B78D570 /* Pods-football-app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-football-app.debug.xcconfig"; path = "Target Support Files/Pods-football-app/Pods-football-app.debug.xcconfig"; sourceTree = "<group>"; };
 		87DC3CC7599EC1794F4E1E7D /* Pods-football-app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-football-app.release.xcconfig"; path = "Target Support Files/Pods-football-app/Pods-football-app.release.xcconfig"; sourceTree = "<group>"; };
 		DF03CD96F4100FCA2F70CD7C /* Pods_football_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_football_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,6 +79,11 @@
 		110BFB8A2B47639B0021B151 /* football-app */ = {
 			isa = PBXGroup;
 			children = (
+				110BFBBB2B477FF00021B151 /* Extension */,
+				110BFBB82B477F1D0021B151 /* Core */,
+				110BFBB52B477C1A0021B151 /* Constant */,
+				110BFBB22B477B810021B151 /* Dependency */,
+				110BFBA52B4771960021B151 /* API */,
 				110BFBA22B4764080021B151 /* MatchList */,
 				110BFB8B2B47639B0021B151 /* AppDelegate.swift */,
 				110BFB8D2B47639B0021B151 /* SceneDelegate.swift */,
@@ -82,13 +103,71 @@
 			path = MatchList;
 			sourceTree = "<group>";
 		};
+		110BFBA52B4771960021B151 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				110BFBA62B4771B00021B151 /* Model */,
+				110BFBA72B4771B80021B151 /* Service */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		110BFBA62B4771B00021B151 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				110BFBAE2B4775550021B151 /* Match.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		110BFBA72B4771B80021B151 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				110BFBAC2B4774EF0021B151 /* MatchServiceProtocol.swift */,
+				110BFBB02B4776CD0021B151 /* MatchService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		110BFBB22B477B810021B151 /* Dependency */ = {
+			isa = PBXGroup;
+			children = (
+				110BFBB32B477B9B0021B151 /* DependencyContainer.swift */,
+			);
+			path = Dependency;
+			sourceTree = "<group>";
+		};
+		110BFBB52B477C1A0021B151 /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				110BFBB62B477C480021B151 /* APIConstants.swift */,
+			);
+			path = Constant;
+			sourceTree = "<group>";
+		};
+		110BFBB82B477F1D0021B151 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				110BFBB92B477F330021B151 /* Model.swift */,
+				110BFBA82B4771EC0021B151 /* APIService.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		110BFBBB2B477FF00021B151 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				110BFBBC2B4780330021B151 /* DateFormatters+Ext.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		6011D6A2D9122D2863684798 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				7FB07ADA3C89C66C7B78D570 /* Pods-football-app.debug.xcconfig */,
 				87DC3CC7599EC1794F4E1E7D /* Pods-football-app.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -214,10 +293,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				110BFBBD2B4780330021B151 /* DateFormatters+Ext.swift in Sources */,
 				110BFBA42B4764350021B151 /* MatchListViewController.swift in Sources */,
+				110BFBA92B4771EC0021B151 /* APIService.swift in Sources */,
 				110BFB962B47639B0021B151 /* football_app.xcdatamodeld in Sources */,
+				110BFBB12B4776CD0021B151 /* MatchService.swift in Sources */,
+				110BFBAD2B4774EF0021B151 /* MatchServiceProtocol.swift in Sources */,
 				110BFB8C2B47639B0021B151 /* AppDelegate.swift in Sources */,
 				110BFB8E2B47639B0021B151 /* SceneDelegate.swift in Sources */,
+				110BFBB42B477B9B0021B151 /* DependencyContainer.swift in Sources */,
+				110BFBBA2B477F330021B151 /* Model.swift in Sources */,
+				110BFBB72B477C480021B151 /* APIConstants.swift in Sources */,
+				110BFBAF2B4775550021B151 /* Match.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,7 +359,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -335,7 +422,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
