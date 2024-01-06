@@ -55,6 +55,7 @@ extension MatchListViewController {
 extension MatchListViewController {
     func setup() {
         setTitle(viewModel.title)
+        setupNavigationBarItems()
         setupLayout()
         setupCollectionView()
         configureDataSource()
@@ -85,6 +86,17 @@ extension MatchListViewController {
             MatchListCell.self,
             forCellWithReuseIdentifier: MatchListCell.reuseIdentifier
         )
+    }
+    
+    func setupNavigationBarItems() {
+        let filterButtonItem = UIBarButtonItem(
+            image: UIImage(systemName: "slider.horizontal.3"),
+            style: .plain,
+            target: self,
+            action: #selector(showTeamList)
+        )
+        filterButtonItem.tintColor = .black
+        navigationItem.rightBarButtonItem = filterButtonItem
     }
 }
 
@@ -210,5 +222,16 @@ private extension MatchListViewController {
         self.present(vc, animated: true) {
             vc.player?.play()
         }
+    }
+    
+    @objc
+    func showTeamList() {
+        let vc = TeamListViewController()
+        vc.viewModel = viewModel.getTeamListViewModel()
+        let nc = UINavigationController(rootViewController: vc)
+        nc.modalPresentationStyle = .pageSheet
+        let sheet = nc.sheetPresentationController
+        sheet?.detents = [.medium()]
+        present(nc, animated: true)
     }
 }

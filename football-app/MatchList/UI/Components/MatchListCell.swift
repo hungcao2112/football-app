@@ -126,7 +126,7 @@ private extension MatchListCell {
         borderView.snp.makeConstraints { make in
             make.top.equalToSuperview()
             make.left.right.equalToSuperview().inset(16)
-            make.bottom.equalToSuperview().inset(8)
+            make.bottom.equalToSuperview().inset(8).priority(999)
         }
         
         contentStackView.snp.makeConstraints { make in
@@ -134,7 +134,7 @@ private extension MatchListCell {
         }
         
         matchStackView.snp.makeConstraints { make in
-            make.height.equalTo(120)
+            make.height.equalTo(120).priority(999)
         }
         
         homeTeamView.snp.makeConstraints { make in
@@ -150,7 +150,7 @@ private extension MatchListCell {
         }
         
         actionButton.snp.makeConstraints { make in
-            make.height.equalTo(35)
+            make.height.equalTo(35).priority(999)
         }
     }
 }
@@ -162,6 +162,13 @@ private extension MatchListCell {
         descriptionLabel.text = viewModel.descriptionText
         timeLabel.text = viewModel.timeText
         actionButton.isHidden = !viewModel.showHighlight
+        
+        if let isHomeTeamWinner = viewModel.isHomeTeamWinner {
+            homeTeamView.setWinnerBadge(isHidden: !isHomeTeamWinner)
+            awayTeamView.setWinnerBadge(isHidden: isHomeTeamWinner)
+            homeTeamView.alpha = isHomeTeamWinner ? 1 : 0.3
+            awayTeamView.alpha = isHomeTeamWinner ? 0.3 : 1
+        }
         
         if let homeTeamVM = viewModel.getHomeTeamViewModel() {
             homeTeamView.viewModel = homeTeamVM

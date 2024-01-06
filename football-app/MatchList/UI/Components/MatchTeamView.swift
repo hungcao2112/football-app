@@ -24,6 +24,15 @@ class MatchTeamView: UIView {
         return stackView
     }()
     
+    lazy var winBadge: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(systemName: "star.fill")
+        imageView.tintColor = .systemYellow
+        imageView.contentMode = .scaleAspectFit
+        imageView.isHidden = true
+        return imageView
+    }()
+    
     lazy var teamImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
@@ -60,15 +69,21 @@ private extension MatchTeamView {
     
     func setupLayout() {
         addSubview(contentStackView)
+        addSubview(winBadge)
         contentStackView.addArrangedSubview(teamImageView)
         contentStackView.addArrangedSubview(teamNameLabel)
+        
+        winBadge.snp.makeConstraints { make in
+            make.top.right.equalToSuperview()
+            make.width.height.equalTo(24)
+        }
         
         contentStackView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
         
         teamImageView.snp.makeConstraints { make in
-            make.height.equalTo(teamImageView.snp.width).multipliedBy(0.8)
+            make.height.equalTo(teamImageView.snp.width).multipliedBy(0.8).priority(999)
         }
     }
 }
@@ -81,5 +96,13 @@ private extension MatchTeamView {
             teamImageView.kf.setImage(with: url)
         }
         teamNameLabel.text = viewModel.teamName
+    }
+}
+
+// MARK: - Methods
+
+extension MatchTeamView {
+    func setWinnerBadge(isHidden: Bool) {
+        winBadge.isHidden = isHidden
     }
 }

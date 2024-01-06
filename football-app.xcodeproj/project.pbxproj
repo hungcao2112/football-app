@@ -37,6 +37,10 @@
 		110BFBE82B48CDC10021B151 /* MatchTeamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110BFBE72B48CDC10021B151 /* MatchTeamView.swift */; };
 		110BFBEA2B48CEB70021B151 /* MatchTeamViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110BFBE92B48CEB70021B151 /* MatchTeamViewModel.swift */; };
 		110BFBEC2B48DAE50021B151 /* MatchListHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110BFBEB2B48DAE50021B151 /* MatchListHeaderViewModel.swift */; };
+		110BFBF02B48EE770021B151 /* TeamListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110BFBEF2B48EE770021B151 /* TeamListViewController.swift */; };
+		110BFBF22B49D4E10021B151 /* TeamListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110BFBF12B49D4E10021B151 /* TeamListViewModel.swift */; };
+		110BFBF52B49D8B10021B151 /* TeamListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110BFBF42B49D8B10021B151 /* TeamListCell.swift */; };
+		110BFBF72B49DA410021B151 /* TeamListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110BFBF62B49DA410021B151 /* TeamListCellViewModel.swift */; };
 		58389D57A1E8EA70CE9842E7 /* Pods_football_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF03CD96F4100FCA2F70CD7C /* Pods_football_app.framework */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +77,10 @@
 		110BFBE72B48CDC10021B151 /* MatchTeamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchTeamView.swift; sourceTree = "<group>"; };
 		110BFBE92B48CEB70021B151 /* MatchTeamViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchTeamViewModel.swift; sourceTree = "<group>"; };
 		110BFBEB2B48DAE50021B151 /* MatchListHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchListHeaderViewModel.swift; sourceTree = "<group>"; };
+		110BFBEF2B48EE770021B151 /* TeamListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamListViewController.swift; sourceTree = "<group>"; };
+		110BFBF12B49D4E10021B151 /* TeamListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamListViewModel.swift; sourceTree = "<group>"; };
+		110BFBF42B49D8B10021B151 /* TeamListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamListCell.swift; sourceTree = "<group>"; };
+		110BFBF62B49DA410021B151 /* TeamListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamListCellViewModel.swift; sourceTree = "<group>"; };
 		7FB07ADA3C89C66C7B78D570 /* Pods-football-app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-football-app.debug.xcconfig"; path = "Target Support Files/Pods-football-app/Pods-football-app.debug.xcconfig"; sourceTree = "<group>"; };
 		87DC3CC7599EC1794F4E1E7D /* Pods-football-app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-football-app.release.xcconfig"; path = "Target Support Files/Pods-football-app/Pods-football-app.release.xcconfig"; sourceTree = "<group>"; };
 		DF03CD96F4100FCA2F70CD7C /* Pods_football_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_football_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -253,6 +261,7 @@
 			children = (
 				110BFBE12B48C9C00021B151 /* Services */,
 				110BFBE42B48C9D80021B151 /* Models */,
+				110BFBED2B48E8C60021B151 /* UI */,
 			);
 			path = Teams;
 			sourceTree = "<group>";
@@ -272,6 +281,33 @@
 				110BFBD62B48ACDF0021B151 /* Team.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		110BFBED2B48E8C60021B151 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				110BFBF32B49D8970021B151 /* Components */,
+				110BFBEE2B48EE440021B151 /* Scene */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		110BFBEE2B48EE440021B151 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				110BFBEF2B48EE770021B151 /* TeamListViewController.swift */,
+				110BFBF12B49D4E10021B151 /* TeamListViewModel.swift */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		110BFBF32B49D8970021B151 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				110BFBF42B49D8B10021B151 /* TeamListCell.swift */,
+				110BFBF62B49DA410021B151 /* TeamListCellViewModel.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		6011D6A2D9122D2863684798 /* Pods */ = {
@@ -406,9 +442,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				110BFBBD2B4780330021B151 /* DateFormatters+Ext.swift in Sources */,
+				110BFBF22B49D4E10021B151 /* TeamListViewModel.swift in Sources */,
 				110BFBA42B4764350021B151 /* MatchListViewController.swift in Sources */,
 				110BFBA92B4771EC0021B151 /* APIService.swift in Sources */,
 				110BFBC82B4828AC0021B151 /* MatchListViewModelProtocol.swift in Sources */,
+				110BFBF72B49DA410021B151 /* TeamListCellViewModel.swift in Sources */,
 				110BFBD52B48A8F70021B151 /* UIImageView+Ext.swift in Sources */,
 				110BFBBF2B4816680021B151 /* MatchListTabViewController.swift in Sources */,
 				110BFBE32B48C9D30021B151 /* TeamServiceProtocol.swift in Sources */,
@@ -417,6 +455,7 @@
 				110BFB962B47639B0021B151 /* football_app.xcdatamodeld in Sources */,
 				110BFBD72B48ACDF0021B151 /* Team.swift in Sources */,
 				110BFBB12B4776CD0021B151 /* MatchService.swift in Sources */,
+				110BFBF02B48EE770021B151 /* TeamListViewController.swift in Sources */,
 				110BFBCA2B4828B60021B151 /* MatchListViewModel.swift in Sources */,
 				110BFBAD2B4774EF0021B151 /* MatchServiceProtocol.swift in Sources */,
 				110BFBD92B48B3B30021B151 /* Date+Ext.swift in Sources */,
@@ -424,6 +463,7 @@
 				110BFB8C2B47639B0021B151 /* AppDelegate.swift in Sources */,
 				110BFB8E2B47639B0021B151 /* SceneDelegate.swift in Sources */,
 				110BFBE62B48C9F70021B151 /* TeamService.swift in Sources */,
+				110BFBF52B49D8B10021B151 /* TeamListCell.swift in Sources */,
 				110BFBD32B48A0BC0021B151 /* MatchListHeader.swift in Sources */,
 				110BFBDF2B48C0A20021B151 /* ActivityIndicatorView.swift in Sources */,
 				110BFBB42B477B9B0021B151 /* DependencyContainer.swift in Sources */,

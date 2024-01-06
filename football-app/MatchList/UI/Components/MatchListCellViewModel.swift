@@ -16,6 +16,7 @@ class MatchListCellViewModel {
     var awayTeamName: String = ""
     var timeText: String = ""
     var showHighlight: Bool = false
+    var isHomeTeamWinner: Bool? = nil
     
     public var buttonTappedSubject = PassthroughSubject<URL?, Never>()
     
@@ -34,6 +35,9 @@ private extension MatchListCellViewModel {
         awayTeamName = match.away
         timeText = match.date?.toTimeString() ?? ""
         showHighlight = match.highlights != nil
+        if let winner = match.winner {
+            isHomeTeamWinner = winner.trimmingCharacters(in: .whitespaces) == match.home.trimmingCharacters(in: .whitespaces)
+        }
     }
 }
 

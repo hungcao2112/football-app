@@ -19,13 +19,14 @@ class MatchListViewModel: MatchListViewModelProtocol {
     private let matchService: MatchServiceProtocol
     private let teamService: TeamServiceProtocol
     private var cancellables = Set<AnyCancellable>()
+    private var teams: [Team] = []
+    private var matches: [Match] = []
     
     @Published private(set) var groupedMatches: [GroupedMatch] = []
     @Published private(set) var matchHighlights: URL? = nil
     @Published private(set) var state: ListViewModelState = .loading
     
     var matchHighlightsTappedSubject = PassthroughSubject<URL?, Never>()
-    
     var title: String = ""
     
     init(
@@ -72,6 +73,8 @@ extension MatchListViewModel {
                 }
                 
                 self.groupedMatches = self.groupMatches(matches)
+                self.teams = teams
+                self.matches = matches
             }
             .store(in: &cancellables)
         
@@ -105,6 +108,26 @@ extension MatchListViewModel {
     func getMatchHeaderViewModel(index: Int) -> MatchListHeaderViewModel {
         let date = self.groupedMatches[index].date ?? Date()
         let viewModel = MatchListHeaderViewModel(date: date)
+        return viewModel
+    }
+    
+    func getTeamListViewModel() -> TeamListViewModel {
+        let viewModel = TeamListViewModel(teams: self.teams)
+        viewModel.teamSelectedSubject.sink { [weak self] teams in
+            guard let self = self else { return }
+            self.teams = teams
+            let selectedTeams = self.teams.filter({ $0.isSelected })
+            var filteredMatches = self.matches
+            if !selectedTeams.isEmpty {
+                filteredMatches = self.matches
+                    .filter {
+                        selectedTeams.map { $0.name }.contains( $0.home ) ||
+                        selectedTeams.map { $0.name }.contains( $0.away )
+                    }
+            }
+            self.groupedMatches = self.groupMatches(filteredMatches)
+        }
+        .store(in: &cancellables)
         return viewModel
     }
 }
