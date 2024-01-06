@@ -17,6 +17,8 @@ class MatchListCell: UICollectionViewCell {
         }
     }
     
+    var onSeeHighlightTapped: ((URL?) -> ())?
+    
     lazy var borderView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
@@ -30,7 +32,7 @@ class MatchListCell: UICollectionViewCell {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.alignment = .center
-        stackView.spacing = 8
+        stackView.spacing = 16
         stackView.clipsToBounds = true
         return stackView
     }()
@@ -69,6 +71,24 @@ class MatchListCell: UICollectionViewCell {
         return label
     }()
     
+    lazy var actionButton: UIButton = {
+        let button = UIButton()
+        var config = UIButton.Configuration.filled()
+        config.background.backgroundColor = .systemGreen
+        config.image = UIImage(systemName: "play.circle")
+        config.title = "See highlights"
+        config.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer { incoming in
+            var outgoing = incoming
+            outgoing.font = UIFont.systemFont(ofSize: 14)
+            return outgoing
+        }
+        config.imagePadding = 8
+        config.cornerStyle = .medium
+        button.configuration = config
+        button.addTarget(self, action: #selector(onActionButtonTapped), for: .touchUpInside)
+        return button
+    }()
+    
     lazy var homeTeamView: MatchTeamView = MatchTeamView()
     
     lazy var awayTeamView: MatchTeamView = MatchTeamView()
@@ -96,6 +116,7 @@ private extension MatchListCell {
         borderView.addSubview(contentStackView)
         contentStackView.addArrangedSubview(descriptionLabel)
         contentStackView.addArrangedSubview(matchStackView)
+        contentStackView.addArrangedSubview(actionButton)
         matchStackView.addArrangedSubview(homeTeamView)
         matchStackView.addArrangedSubview(timeView)
         matchStackView.addArrangedSubview(awayTeamView)
@@ -127,6 +148,10 @@ private extension MatchListCell {
         timeLabel.snp.makeConstraints { make in
             make.edges.equalToSuperview().inset(8)
         }
+        
+        actionButton.snp.makeConstraints { make in
+            make.height.equalTo(35)
+        }
     }
 }
 
@@ -136,6 +161,7 @@ private extension MatchListCell {
     func refresh() {
         descriptionLabel.text = viewModel.descriptionText
         timeLabel.text = viewModel.timeText
+        actionButton.isHidden = !viewModel.showHighlight
         
         if let homeTeamVM = viewModel.getHomeTeamViewModel() {
             homeTeamView.viewModel = homeTeamVM
@@ -143,5 +169,14 @@ private extension MatchListCell {
         if let awayTeamVM = viewModel.getAwayTeamViewModel() {
             awayTeamView.viewModel = awayTeamVM
         }
+    }
+}
+
+// MARK: - Actions
+
+private extension MatchListCell {
+    @objc
+    func onActionButtonTapped() {
+        viewModel.handleButtonTapped()
     }
 }

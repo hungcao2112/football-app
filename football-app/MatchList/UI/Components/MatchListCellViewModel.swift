@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 class MatchListCellViewModel {
     private var match: Match
@@ -14,6 +15,9 @@ class MatchListCellViewModel {
     var homeTeamName: String = ""
     var awayTeamName: String = ""
     var timeText: String = ""
+    var showHighlight: Bool = false
+    
+    public var buttonTappedSubject = PassthroughSubject<URL?, Never>()
     
     init(match: Match) {
         self.match = match
@@ -23,12 +27,13 @@ class MatchListCellViewModel {
 
 // MARK: - Configure data
 
-extension MatchListCellViewModel {
+private extension MatchListCellViewModel {
     func configureData() {
         descriptionText = match.description
         homeTeamName = match.home
         awayTeamName = match.away
         timeText = match.date?.toTimeString() ?? ""
+        showHighlight = match.highlights != nil
     }
 }
 
@@ -47,5 +52,13 @@ extension MatchListCellViewModel {
             return MatchTeamViewModel(team: awayTeam)
         }
         return nil
+    }
+}
+
+// MARK: - Handlers
+
+extension MatchListCellViewModel {
+    func handleButtonTapped() {
+        buttonTappedSubject.send(match.highlights)
     }
 }

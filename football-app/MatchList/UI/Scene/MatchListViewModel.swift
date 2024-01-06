@@ -21,10 +21,12 @@ class MatchListViewModel: MatchListViewModelProtocol {
     private var cancellables = Set<AnyCancellable>()
     
     @Published private(set) var groupedMatches: [GroupedMatch] = []
+    @Published private(set) var matchHighlights: URL? = nil
     @Published private(set) var state: ListViewModelState = .loading
     
-    var title: String = ""
+    var matchHighlightsTappedSubject = PassthroughSubject<URL?, Never>()
     
+    var title: String = ""
     
     init(
         matchPhase: MatchPhase,
@@ -88,5 +90,21 @@ extension MatchListViewModel {
         groupedMatchArray.sorted { ($0.date ?? Date()) > ($1.date ?? Date()) } :
         groupedMatchArray.sorted { ($0.date ?? Date()) < ($1.date ?? Date()) }
         return sortedGroupedMatches
+    }
+}
+
+// MARK: - ViewModels
+
+extension MatchListViewModel {
+    func getMatchCellViewModel(_ match: Match) -> MatchListCellViewModel {
+        let viewModel = MatchListCellViewModel(match: match)
+        viewModel.buttonTappedSubject.assign(to: &$matchHighlights)
+        return viewModel
+    }
+    
+    func getMatchHeaderViewModel(index: Int) -> MatchListHeaderViewModel {
+        let date = self.groupedMatches[index].date ?? Date()
+        let viewModel = MatchListHeaderViewModel(date: date)
+        return viewModel
     }
 }

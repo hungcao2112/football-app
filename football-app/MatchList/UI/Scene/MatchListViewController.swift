@@ -8,6 +8,8 @@
 import UIKit
 import Combine
 import SnapKit
+import AVKit
+import AVFoundation
 
 class MatchListViewController: ViewController {
     var viewModel: MatchListViewModel!
@@ -113,6 +115,14 @@ private extension MatchListViewController {
                 }
             }
             .store(in: &cancellables)
+        
+        viewModel.$matchHighlights
+            .receive(on: RunLoop.main)
+            .sink { [weak self] url in
+                guard let self = self else { return }
+                self.showHighlightVideo(url: url)
+            }
+            .store(in: &cancellables)
     }
 }
 
@@ -152,9 +162,12 @@ private extension MatchListViewController {
 
 extension MatchListViewController {
     private func configureDataSource() {
-        dataSource = UICollectionViewDiffableDataSource<Date, Match>(collectionView: collectionView) { collectionView, indexPath, match in
+        dataSource = UICollectionViewDiffableDataSource<Date, Match>(collectionView: collectionView) { [weak self] collectionView, indexPath, match in
+            guard let self = self else {
+                fatalError()
+            }
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MatchListCell.reuseIdentifier, for: indexPath) as! MatchListCell
-            cell.viewModel = MatchListCellViewModel(match: match)
+            cell.viewModel = self.viewModel.getMatchCellViewModel(match)
             return cell
         }
         
@@ -167,8 +180,7 @@ extension MatchListViewController {
                 withReuseIdentifier: MatchListHeader.reuseIdentifier,
                 for: indexPath
             ) as! MatchListHeader
-            let date = self.viewModel.groupedMatches[indexPath.section].date ?? Date()
-            header.viewModel = MatchListHeaderViewModel(date: date)
+            header.viewModel = viewModel.getMatchHeaderViewModel(index: indexPath.section)
             return header
         }
     }
@@ -182,5 +194,21 @@ extension MatchListViewController {
         }
         
         dataSource.apply(snapshot, animatingDifferences: false)
+    }
+}
+
+// MARK: - Routers
+
+private extension MatchListViewController {
+    func showHighlightVideo(url: URL?) {
+        guard let url = url else { return }
+        let player = AVPlayer(url: url)
+        
+        let vc = AVPlayerViewController()
+        vc.player = player
+        
+        self.present(vc, animated: true) {
+            vc.player?.play()
+        }
     }
 }
