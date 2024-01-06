@@ -18,14 +18,17 @@ class MatchListViewModel: MatchListViewModelProtocol {
     private let matchPhase: MatchPhase
     private let matchService: MatchServiceProtocol
     private let teamService: TeamServiceProtocol
-    private var cancellables = Set<AnyCancellable>()
+    
     private var teams: [Team] = []
     private var matches: [Match] = []
+    private var selectedTeam: Team?
+    private var cancellables = Set<AnyCancellable>()
     
     @Published private(set) var groupedMatches: [GroupedMatch] = []
     @Published private(set) var matchHighlights: URL? = nil
     @Published private(set) var state: ListViewModelState = .loading
     
+    var teamTappedSubject = PassthroughSubject<Void, Never>()
     var matchHighlightsTappedSubject = PassthroughSubject<URL?, Never>()
     var title: String = ""
     
@@ -102,6 +105,12 @@ extension MatchListViewModel {
     func getMatchCellViewModel(_ match: Match) -> MatchListCellViewModel {
         let viewModel = MatchListCellViewModel(match: match)
         viewModel.buttonTappedSubject.assign(to: &$matchHighlights)
+        viewModel.teamTappedSubject.sink { [weak self] team in
+            guard let self = self else { return }
+            self.selectedTeam = team
+            self.teamTappedSubject.send()
+        }
+        .store(in: &cancellables)
         return viewModel
     }
     
@@ -129,5 +138,10 @@ extension MatchListViewModel {
         }
         .store(in: &cancellables)
         return viewModel
+    }
+    
+    func getTeamDetailViewModel() -> TeamDetailViewModel? {
+        guard let team = selectedTeam else { return nil }
+        return TeamDetailViewModel(team: team)
     }
 }

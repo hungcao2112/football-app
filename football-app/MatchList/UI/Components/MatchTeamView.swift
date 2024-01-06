@@ -65,6 +65,7 @@ class MatchTeamView: UIView {
 private extension MatchTeamView {
     func setup() {
         setupLayout()
+        setupTapGesture()
     }
     
     func setupLayout() {
@@ -86,6 +87,15 @@ private extension MatchTeamView {
             make.height.equalTo(teamImageView.snp.width).multipliedBy(0.8).priority(999)
         }
     }
+    
+    func setupTapGesture() {
+        let tapGesture = UITapGestureRecognizer(
+            target: self,
+            action: #selector(onViewTapped)
+        )
+        isUserInteractionEnabled = true
+        addGestureRecognizer(tapGesture)
+    }
 }
 
 // MARK: - Refresh
@@ -104,5 +114,14 @@ private extension MatchTeamView {
 extension MatchTeamView {
     func setWinnerBadge(isHidden: Bool) {
         winBadge.isHidden = isHidden
+    }
+}
+
+// MARK: - Actions
+
+extension MatchTeamView {
+    @objc
+    func onViewTapped() {
+        viewModel.handleViewTapped()
     }
 }

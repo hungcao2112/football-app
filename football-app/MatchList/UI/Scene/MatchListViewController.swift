@@ -135,6 +135,14 @@ private extension MatchListViewController {
                 self.showHighlightVideo(url: url)
             }
             .store(in: &cancellables)
+        
+        viewModel.teamTappedSubject
+            .receive(on: RunLoop.main)
+            .sink { [weak self] in
+                guard let self = self else { return }
+                self.showTeamDetail()
+            }
+            .store(in: &cancellables)
     }
 }
 
@@ -233,5 +241,14 @@ private extension MatchListViewController {
         let sheet = nc.sheetPresentationController
         sheet?.detents = [.medium()]
         present(nc, animated: true)
+    }
+    
+    @objc
+    func showTeamDetail() {
+        guard let vm = viewModel.getTeamDetailViewModel() else { return }
+        let vc = TeamDetailViewController()
+        vc.hidesBottomBarWhenPushed = true
+        vc.viewModel = vm
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

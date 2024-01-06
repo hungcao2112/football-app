@@ -18,7 +18,8 @@ class MatchListCellViewModel {
     var showHighlight: Bool = false
     var isHomeTeamWinner: Bool? = nil
     
-    public var buttonTappedSubject = PassthroughSubject<URL?, Never>()
+    var buttonTappedSubject = PassthroughSubject<URL?, Never>()
+    var teamTappedSubject = PassthroughSubject<Team, Never>()
     
     init(match: Match) {
         self.match = match
@@ -46,14 +47,18 @@ private extension MatchListCellViewModel {
 extension MatchListCellViewModel {
     func getHomeTeamViewModel() -> MatchTeamViewModel? {
         if let homeTeam = match.homeTeam {
-            return MatchTeamViewModel(team: homeTeam)
+            let viewModel = MatchTeamViewModel(team: homeTeam)
+            viewModel.viewTappedSubject = teamTappedSubject
+            return viewModel
         }
         return nil
     }
     
     func getAwayTeamViewModel() -> MatchTeamViewModel? {
         if let awayTeam = match.awayTeam {
-            return MatchTeamViewModel(team: awayTeam)
+            let viewModel = MatchTeamViewModel(team: awayTeam)
+            viewModel.viewTappedSubject = teamTappedSubject
+            return viewModel
         }
         return nil
     }
