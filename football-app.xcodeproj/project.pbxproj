@@ -21,6 +21,22 @@
 		110BFBB72B477C480021B151 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110BFBB62B477C480021B151 /* APIConstants.swift */; };
 		110BFBBA2B477F330021B151 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110BFBB92B477F330021B151 /* Model.swift */; };
 		110BFBBD2B4780330021B151 /* DateFormatters+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110BFBBC2B4780330021B151 /* DateFormatters+Ext.swift */; };
+		110BFBBF2B4816680021B151 /* MatchListTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110BFBBE2B4816680021B151 /* MatchListTabViewController.swift */; };
+		110BFBC22B48269D0021B151 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110BFBC12B48269D0021B151 /* ViewController.swift */; };
+		110BFBC82B4828AC0021B151 /* MatchListViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110BFBC72B4828AC0021B151 /* MatchListViewModelProtocol.swift */; };
+		110BFBCA2B4828B60021B151 /* MatchListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110BFBC92B4828B60021B151 /* MatchListViewModel.swift */; };
+		110BFBD12B489FFA0021B151 /* MatchListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110BFBD02B489FFA0021B151 /* MatchListCell.swift */; };
+		110BFBD32B48A0BC0021B151 /* MatchListHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110BFBD22B48A0BC0021B151 /* MatchListHeader.swift */; };
+		110BFBD52B48A8F70021B151 /* UIImageView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110BFBD42B48A8F70021B151 /* UIImageView+Ext.swift */; };
+		110BFBD72B48ACDF0021B151 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110BFBD62B48ACDF0021B151 /* Team.swift */; };
+		110BFBD92B48B3B30021B151 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110BFBD82B48B3B30021B151 /* Date+Ext.swift */; };
+		110BFBDD2B48B45C0021B151 /* MatchListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110BFBDC2B48B45C0021B151 /* MatchListCellViewModel.swift */; };
+		110BFBDF2B48C0A20021B151 /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110BFBDE2B48C0A20021B151 /* ActivityIndicatorView.swift */; };
+		110BFBE32B48C9D30021B151 /* TeamServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110BFBE22B48C9D30021B151 /* TeamServiceProtocol.swift */; };
+		110BFBE62B48C9F70021B151 /* TeamService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110BFBE52B48C9F70021B151 /* TeamService.swift */; };
+		110BFBE82B48CDC10021B151 /* MatchTeamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110BFBE72B48CDC10021B151 /* MatchTeamView.swift */; };
+		110BFBEA2B48CEB70021B151 /* MatchTeamViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110BFBE92B48CEB70021B151 /* MatchTeamViewModel.swift */; };
+		110BFBEC2B48DAE50021B151 /* MatchListHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110BFBEB2B48DAE50021B151 /* MatchListHeaderViewModel.swift */; };
 		58389D57A1E8EA70CE9842E7 /* Pods_football_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF03CD96F4100FCA2F70CD7C /* Pods_football_app.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +57,22 @@
 		110BFBB62B477C480021B151 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		110BFBB92B477F330021B151 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		110BFBBC2B4780330021B151 /* DateFormatters+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatters+Ext.swift"; sourceTree = "<group>"; };
+		110BFBBE2B4816680021B151 /* MatchListTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchListTabViewController.swift; sourceTree = "<group>"; };
+		110BFBC12B48269D0021B151 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		110BFBC72B4828AC0021B151 /* MatchListViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchListViewModelProtocol.swift; sourceTree = "<group>"; };
+		110BFBC92B4828B60021B151 /* MatchListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchListViewModel.swift; sourceTree = "<group>"; };
+		110BFBD02B489FFA0021B151 /* MatchListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchListCell.swift; sourceTree = "<group>"; };
+		110BFBD22B48A0BC0021B151 /* MatchListHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchListHeader.swift; sourceTree = "<group>"; };
+		110BFBD42B48A8F70021B151 /* UIImageView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Ext.swift"; sourceTree = "<group>"; };
+		110BFBD62B48ACDF0021B151 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
+		110BFBD82B48B3B30021B151 /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
+		110BFBDC2B48B45C0021B151 /* MatchListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchListCellViewModel.swift; sourceTree = "<group>"; };
+		110BFBDE2B48C0A20021B151 /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
+		110BFBE22B48C9D30021B151 /* TeamServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamServiceProtocol.swift; sourceTree = "<group>"; };
+		110BFBE52B48C9F70021B151 /* TeamService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamService.swift; sourceTree = "<group>"; };
+		110BFBE72B48CDC10021B151 /* MatchTeamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchTeamView.swift; sourceTree = "<group>"; };
+		110BFBE92B48CEB70021B151 /* MatchTeamViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchTeamViewModel.swift; sourceTree = "<group>"; };
+		110BFBEB2B48DAE50021B151 /* MatchListHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchListHeaderViewModel.swift; sourceTree = "<group>"; };
 		7FB07ADA3C89C66C7B78D570 /* Pods-football-app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-football-app.debug.xcconfig"; path = "Target Support Files/Pods-football-app/Pods-football-app.debug.xcconfig"; sourceTree = "<group>"; };
 		87DC3CC7599EC1794F4E1E7D /* Pods-football-app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-football-app.release.xcconfig"; path = "Target Support Files/Pods-football-app/Pods-football-app.release.xcconfig"; sourceTree = "<group>"; };
 		DF03CD96F4100FCA2F70CD7C /* Pods_football_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_football_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -83,8 +115,8 @@
 				110BFBB82B477F1D0021B151 /* Core */,
 				110BFBB52B477C1A0021B151 /* Constant */,
 				110BFBB22B477B810021B151 /* Dependency */,
-				110BFBA52B4771960021B151 /* API */,
 				110BFBA22B4764080021B151 /* MatchList */,
+				110BFBE02B48C9AC0021B151 /* Teams */,
 				110BFB8B2B47639B0021B151 /* AppDelegate.swift */,
 				110BFB8D2B47639B0021B151 /* SceneDelegate.swift */,
 				110BFB972B47639C0021B151 /* Assets.xcassets */,
@@ -98,35 +130,11 @@
 		110BFBA22B4764080021B151 /* MatchList */ = {
 			isa = PBXGroup;
 			children = (
-				110BFBA32B4764350021B151 /* MatchListViewController.swift */,
+				110BFBCF2B4829FB0021B151 /* Services */,
+				110BFBCE2B4829E10021B151 /* Models */,
+				110BFBCD2B4829D80021B151 /* UI */,
 			);
 			path = MatchList;
-			sourceTree = "<group>";
-		};
-		110BFBA52B4771960021B151 /* API */ = {
-			isa = PBXGroup;
-			children = (
-				110BFBA62B4771B00021B151 /* Model */,
-				110BFBA72B4771B80021B151 /* Service */,
-			);
-			path = API;
-			sourceTree = "<group>";
-		};
-		110BFBA62B4771B00021B151 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				110BFBAE2B4775550021B151 /* Match.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		110BFBA72B4771B80021B151 /* Service */ = {
-			isa = PBXGroup;
-			children = (
-				110BFBAC2B4774EF0021B151 /* MatchServiceProtocol.swift */,
-				110BFBB02B4776CD0021B151 /* MatchService.swift */,
-			);
-			path = Service;
 			sourceTree = "<group>";
 		};
 		110BFBB22B477B810021B151 /* Dependency */ = {
@@ -148,8 +156,9 @@
 		110BFBB82B477F1D0021B151 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				110BFBB92B477F330021B151 /* Model.swift */,
-				110BFBA82B4771EC0021B151 /* APIService.swift */,
+				110BFBC42B4826AD0021B151 /* API */,
+				110BFBC32B4826A20021B151 /* Models */,
+				110BFBC02B4826850021B151 /* UI */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -158,8 +167,111 @@
 			isa = PBXGroup;
 			children = (
 				110BFBBC2B4780330021B151 /* DateFormatters+Ext.swift */,
+				110BFBD42B48A8F70021B151 /* UIImageView+Ext.swift */,
+				110BFBD82B48B3B30021B151 /* Date+Ext.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		110BFBC02B4826850021B151 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				110BFBC12B48269D0021B151 /* ViewController.swift */,
+				110BFBDE2B48C0A20021B151 /* ActivityIndicatorView.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		110BFBC32B4826A20021B151 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				110BFBB92B477F330021B151 /* Model.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		110BFBC42B4826AD0021B151 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				110BFBA82B4771EC0021B151 /* APIService.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		110BFBCB2B4828CC0021B151 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				110BFBBE2B4816680021B151 /* MatchListTabViewController.swift */,
+				110BFBA32B4764350021B151 /* MatchListViewController.swift */,
+				110BFBC72B4828AC0021B151 /* MatchListViewModelProtocol.swift */,
+				110BFBC92B4828B60021B151 /* MatchListViewModel.swift */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		110BFBCC2B4828D40021B151 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				110BFBD02B489FFA0021B151 /* MatchListCell.swift */,
+				110BFBDC2B48B45C0021B151 /* MatchListCellViewModel.swift */,
+				110BFBD22B48A0BC0021B151 /* MatchListHeader.swift */,
+				110BFBEB2B48DAE50021B151 /* MatchListHeaderViewModel.swift */,
+				110BFBE72B48CDC10021B151 /* MatchTeamView.swift */,
+				110BFBE92B48CEB70021B151 /* MatchTeamViewModel.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		110BFBCD2B4829D80021B151 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				110BFBCC2B4828D40021B151 /* Components */,
+				110BFBCB2B4828CC0021B151 /* Scene */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		110BFBCE2B4829E10021B151 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				110BFBAE2B4775550021B151 /* Match.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		110BFBCF2B4829FB0021B151 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				110BFBAC2B4774EF0021B151 /* MatchServiceProtocol.swift */,
+				110BFBB02B4776CD0021B151 /* MatchService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		110BFBE02B48C9AC0021B151 /* Teams */ = {
+			isa = PBXGroup;
+			children = (
+				110BFBE12B48C9C00021B151 /* Services */,
+				110BFBE42B48C9D80021B151 /* Models */,
+			);
+			path = Teams;
+			sourceTree = "<group>";
+		};
+		110BFBE12B48C9C00021B151 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				110BFBE22B48C9D30021B151 /* TeamServiceProtocol.swift */,
+				110BFBE52B48C9F70021B151 /* TeamService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		110BFBE42B48C9D80021B151 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				110BFBD62B48ACDF0021B151 /* Team.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		6011D6A2D9122D2863684798 /* Pods */ = {
@@ -296,15 +408,31 @@
 				110BFBBD2B4780330021B151 /* DateFormatters+Ext.swift in Sources */,
 				110BFBA42B4764350021B151 /* MatchListViewController.swift in Sources */,
 				110BFBA92B4771EC0021B151 /* APIService.swift in Sources */,
+				110BFBC82B4828AC0021B151 /* MatchListViewModelProtocol.swift in Sources */,
+				110BFBD52B48A8F70021B151 /* UIImageView+Ext.swift in Sources */,
+				110BFBBF2B4816680021B151 /* MatchListTabViewController.swift in Sources */,
+				110BFBE32B48C9D30021B151 /* TeamServiceProtocol.swift in Sources */,
+				110BFBC22B48269D0021B151 /* ViewController.swift in Sources */,
+				110BFBDD2B48B45C0021B151 /* MatchListCellViewModel.swift in Sources */,
 				110BFB962B47639B0021B151 /* football_app.xcdatamodeld in Sources */,
+				110BFBD72B48ACDF0021B151 /* Team.swift in Sources */,
 				110BFBB12B4776CD0021B151 /* MatchService.swift in Sources */,
+				110BFBCA2B4828B60021B151 /* MatchListViewModel.swift in Sources */,
 				110BFBAD2B4774EF0021B151 /* MatchServiceProtocol.swift in Sources */,
+				110BFBD92B48B3B30021B151 /* Date+Ext.swift in Sources */,
+				110BFBEA2B48CEB70021B151 /* MatchTeamViewModel.swift in Sources */,
 				110BFB8C2B47639B0021B151 /* AppDelegate.swift in Sources */,
 				110BFB8E2B47639B0021B151 /* SceneDelegate.swift in Sources */,
+				110BFBE62B48C9F70021B151 /* TeamService.swift in Sources */,
+				110BFBD32B48A0BC0021B151 /* MatchListHeader.swift in Sources */,
+				110BFBDF2B48C0A20021B151 /* ActivityIndicatorView.swift in Sources */,
 				110BFBB42B477B9B0021B151 /* DependencyContainer.swift in Sources */,
 				110BFBBA2B477F330021B151 /* Model.swift in Sources */,
+				110BFBEC2B48DAE50021B151 /* MatchListHeaderViewModel.swift in Sources */,
+				110BFBD12B489FFA0021B151 /* MatchListCell.swift in Sources */,
 				110BFBB72B477C480021B151 /* APIConstants.swift in Sources */,
 				110BFBAF2B4775550021B151 /* Match.swift in Sources */,
+				110BFBE82B48CDC10021B151 /* MatchTeamView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

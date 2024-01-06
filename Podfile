@@ -7,5 +7,6 @@ target 'football-app' do
 
   # Pods for football-app
   pod 'SnapKit', '~> 5.6.0'
+  pod 'Kingfisher', '~> 7.0'
 
 end
