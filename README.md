@@ -23,11 +23,10 @@ Then, I have to combine the CoreData with Combine framework, tried to create som
 
 This experience helped me learn a lot about CoreData, about its managed objects or the parent-child context. Althought CoreData is too complicated to implement and maintaince for me now, but I will see what can I do with it in the future
 
-
-
-
-
-
+## 6. Github link:
+- I've pushed the project to my Github repository, in case you can't open it from the zip file
+  
+https://github.com/hungcao2112/football-app
 
 
 
