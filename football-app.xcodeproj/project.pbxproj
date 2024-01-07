@@ -43,6 +43,13 @@
 		110BFBF72B49DA410021B151 /* TeamListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110BFBF62B49DA410021B151 /* TeamListCellViewModel.swift */; };
 		110BFBF92B49FE010021B151 /* TeamDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110BFBF82B49FE010021B151 /* TeamDetailViewController.swift */; };
 		110BFBFB2B4A02490021B151 /* TeamDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110BFBFA2B4A02490021B151 /* TeamDetailViewModel.swift */; };
+		110BFBFE2B4A08300021B151 /* CoreDataSaveModelPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110BFBFD2B4A08300021B151 /* CoreDataSaveModelPublisher.swift */; };
+		110BFC002B4A08510021B151 /* CoreDataFetchResultsPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110BFBFF2B4A08510021B151 /* CoreDataFetchResultsPublisher.swift */; };
+		110BFC022B4A08D50021B151 /* CoreDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110BFC012B4A08D50021B151 /* CoreDataStore.swift */; };
+		110BFC042B4A0AAD0021B151 /* MatchEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110BFC032B4A0AAD0021B151 /* MatchEntity.swift */; };
+		110BFC062B4A0C2B0021B151 /* TeamEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110BFC052B4A0C2B0021B151 /* TeamEntity.swift */; };
+		110BFC2B2B4A27360021B151 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110BFC2A2B4A27360021B151 /* String+Ext.swift */; };
+		110BFC2D2B4A30710021B151 /* CoreDataDeleteModelPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110BFC2C2B4A30710021B151 /* CoreDataDeleteModelPublisher.swift */; };
 		58389D57A1E8EA70CE9842E7 /* Pods_football_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF03CD96F4100FCA2F70CD7C /* Pods_football_app.framework */; };
 /* End PBXBuildFile section */
 
@@ -85,6 +92,13 @@
 		110BFBF62B49DA410021B151 /* TeamListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamListCellViewModel.swift; sourceTree = "<group>"; };
 		110BFBF82B49FE010021B151 /* TeamDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetailViewController.swift; sourceTree = "<group>"; };
 		110BFBFA2B4A02490021B151 /* TeamDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetailViewModel.swift; sourceTree = "<group>"; };
+		110BFBFD2B4A08300021B151 /* CoreDataSaveModelPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataSaveModelPublisher.swift; sourceTree = "<group>"; };
+		110BFBFF2B4A08510021B151 /* CoreDataFetchResultsPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataFetchResultsPublisher.swift; sourceTree = "<group>"; };
+		110BFC012B4A08D50021B151 /* CoreDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStore.swift; sourceTree = "<group>"; };
+		110BFC032B4A0AAD0021B151 /* MatchEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchEntity.swift; sourceTree = "<group>"; };
+		110BFC052B4A0C2B0021B151 /* TeamEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamEntity.swift; sourceTree = "<group>"; };
+		110BFC2A2B4A27360021B151 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
+		110BFC2C2B4A30710021B151 /* CoreDataDeleteModelPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataDeleteModelPublisher.swift; sourceTree = "<group>"; };
 		7FB07ADA3C89C66C7B78D570 /* Pods-football-app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-football-app.debug.xcconfig"; path = "Target Support Files/Pods-football-app/Pods-football-app.debug.xcconfig"; sourceTree = "<group>"; };
 		87DC3CC7599EC1794F4E1E7D /* Pods-football-app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-football-app.release.xcconfig"; path = "Target Support Files/Pods-football-app/Pods-football-app.release.xcconfig"; sourceTree = "<group>"; };
 		DF03CD96F4100FCA2F70CD7C /* Pods_football_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_football_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -171,6 +185,7 @@
 				110BFBC42B4826AD0021B151 /* API */,
 				110BFBC32B4826A20021B151 /* Models */,
 				110BFBC02B4826850021B151 /* UI */,
+				110BFBFC2B4A08090021B151 /* CoreData */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -181,6 +196,7 @@
 				110BFBBC2B4780330021B151 /* DateFormatters+Ext.swift */,
 				110BFBD42B48A8F70021B151 /* UIImageView+Ext.swift */,
 				110BFBD82B48B3B30021B151 /* Date+Ext.swift */,
+				110BFC2A2B4A27360021B151 /* String+Ext.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -247,6 +263,7 @@
 			isa = PBXGroup;
 			children = (
 				110BFBAE2B4775550021B151 /* Match.swift */,
+				110BFC032B4A0AAD0021B151 /* MatchEntity.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -283,6 +300,7 @@
 			isa = PBXGroup;
 			children = (
 				110BFBD62B48ACDF0021B151 /* Team.swift */,
+				110BFC052B4A0C2B0021B151 /* TeamEntity.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -314,6 +332,17 @@
 				110BFBF62B49DA410021B151 /* TeamListCellViewModel.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		110BFBFC2B4A08090021B151 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				110BFBFD2B4A08300021B151 /* CoreDataSaveModelPublisher.swift */,
+				110BFBFF2B4A08510021B151 /* CoreDataFetchResultsPublisher.swift */,
+				110BFC2C2B4A30710021B151 /* CoreDataDeleteModelPublisher.swift */,
+				110BFC012B4A08D50021B151 /* CoreDataStore.swift */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		6011D6A2D9122D2863684798 /* Pods */ = {
@@ -450,7 +479,10 @@
 				110BFBBD2B4780330021B151 /* DateFormatters+Ext.swift in Sources */,
 				110BFBF22B49D4E10021B151 /* TeamListViewModel.swift in Sources */,
 				110BFBA42B4764350021B151 /* MatchListViewController.swift in Sources */,
+				110BFC002B4A08510021B151 /* CoreDataFetchResultsPublisher.swift in Sources */,
+				110BFC022B4A08D50021B151 /* CoreDataStore.swift in Sources */,
 				110BFBA92B4771EC0021B151 /* APIService.swift in Sources */,
+				110BFC062B4A0C2B0021B151 /* TeamEntity.swift in Sources */,
 				110BFBFB2B4A02490021B151 /* TeamDetailViewModel.swift in Sources */,
 				110BFBC82B4828AC0021B151 /* MatchListViewModelProtocol.swift in Sources */,
 				110BFBF72B49DA410021B151 /* TeamListCellViewModel.swift in Sources */,
@@ -459,13 +491,16 @@
 				110BFBE32B48C9D30021B151 /* TeamServiceProtocol.swift in Sources */,
 				110BFBC22B48269D0021B151 /* ViewController.swift in Sources */,
 				110BFBDD2B48B45C0021B151 /* MatchListCellViewModel.swift in Sources */,
+				110BFBFE2B4A08300021B151 /* CoreDataSaveModelPublisher.swift in Sources */,
 				110BFB962B47639B0021B151 /* football_app.xcdatamodeld in Sources */,
+				110BFC042B4A0AAD0021B151 /* MatchEntity.swift in Sources */,
 				110BFBD72B48ACDF0021B151 /* Team.swift in Sources */,
 				110BFBB12B4776CD0021B151 /* MatchService.swift in Sources */,
 				110BFBF02B48EE770021B151 /* TeamListViewController.swift in Sources */,
 				110BFBCA2B4828B60021B151 /* MatchListViewModel.swift in Sources */,
 				110BFBF92B49FE010021B151 /* TeamDetailViewController.swift in Sources */,
 				110BFBAD2B4774EF0021B151 /* MatchServiceProtocol.swift in Sources */,
+				110BFC2D2B4A30710021B151 /* CoreDataDeleteModelPublisher.swift in Sources */,
 				110BFBD92B48B3B30021B151 /* Date+Ext.swift in Sources */,
 				110BFBEA2B48CEB70021B151 /* MatchTeamViewModel.swift in Sources */,
 				110BFB8C2B47639B0021B151 /* AppDelegate.swift in Sources */,
@@ -480,6 +515,7 @@
 				110BFBD12B489FFA0021B151 /* MatchListCell.swift in Sources */,
 				110BFBB72B477C480021B151 /* APIConstants.swift in Sources */,
 				110BFBAF2B4775550021B151 /* Match.swift in Sources */,
+				110BFC2B2B4A27360021B151 /* String+Ext.swift in Sources */,
 				110BFBE82B48CDC10021B151 /* MatchTeamView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

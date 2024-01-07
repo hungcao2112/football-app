@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct TeamData: ResponseModel {
+public struct TeamData: ResponseModel {
     let teams: [Team]
 }
 
-struct Team: ResponseModel, Equatable, Hashable {
+public struct Team: ResponseModel, Equatable, Hashable {
     let id: String
     let name: String
     let logo: URL?

@@ -29,7 +29,11 @@ class MatchListTabViewController: UITabBarController {
         )
         return vc
     }()
+}
 
+// MARK: - Life-cycle
+
+extension MatchListTabViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()

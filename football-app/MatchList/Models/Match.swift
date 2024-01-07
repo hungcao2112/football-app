@@ -21,16 +21,16 @@ enum MatchPhase {
     }
 }
 
-struct MatchListData: ResponseModel {
+public struct MatchListData: ResponseModel {
     let matches: MatchList
 }
 
-struct MatchList: ResponseModel {
+public struct MatchList: ResponseModel {
     let previous: [Match]
     let upcoming: [Match]
 }
 
-struct Match: ResponseModel, Equatable, Hashable {
+public struct Match: ResponseModel, Equatable, Hashable {
     let uuid: String = UUID().uuidString
     let date: Date?
     let description: String
@@ -46,11 +46,11 @@ struct Match: ResponseModel, Equatable, Hashable {
         case date, description, home, away, winner, highlights
     }
     
-    static func == (lhs: Match, rhs: Match) -> Bool {
+    public static func == (lhs: Match, rhs: Match) -> Bool {
         lhs.uuid == rhs.uuid
     }
     
-    func hash(into hasher: inout Hasher) {
+    public func hash(into hasher: inout Hasher) {
         hasher.combine(uuid)
     }
 }

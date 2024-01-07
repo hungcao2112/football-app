@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import CoreData
 
 enum ListViewModelState {
     case loading
@@ -32,6 +33,8 @@ class MatchListViewModel: MatchListViewModelProtocol {
     var matchHighlightsTappedSubject = PassthroughSubject<URL?, Never>()
     var title: String = ""
     
+    let coreDataStore: CoreDataStoring = CoreDataStore.default
+    
     init(
         matchPhase: MatchPhase,
         matchService: MatchServiceProtocol = MatchService(),
@@ -49,7 +52,47 @@ class MatchListViewModel: MatchListViewModelProtocol {
 extension MatchListViewModel {
     func fetchData() {
         state = .loading
+        fetchDataFromServer(enableHandling: false)
+        fetchDataLocally()
+    }
+    
+    func fetchDataLocally() {
+        let matchRequest = NSFetchRequest<MatchListEntity>(entityName: MatchListEntity.entityName)
+        let teamListRequest = NSFetchRequest<TeamListEntity>(entityName: TeamListEntity.entityName)
         
+        let localDataPublishers = Publishers.CombineLatest(
+            coreDataStore.publicher(fetch: matchRequest),
+            coreDataStore.publicher(fetch: teamListRequest)
+        )
+        
+        localDataPublishers
+            .sink { [weak self] completion in
+                guard let self = self else { return }
+                switch completion {
+                case .finished:
+                    self.state = .finishedLoading
+                case .failure(let error):
+                    self.state = .error(error)
+                }
+            } receiveValue: { [weak self] receivedObject in
+                guard let self = self else { return }
+                let matchListEntity = receivedObject.0
+                let teamListEntity = receivedObject.1
+                if matchListEntity.isEmpty || teamListEntity.isEmpty {
+                    self.fetchDataFromServer(enableHandling: true)
+                } else {
+                    self.state = .finishedLoading
+                }
+                
+                let matchList = matchListEntity.first?.toMatchList()
+                let teams = teamListEntity.first?.toTeams() ?? []
+                
+                self.handleReceivedData(matchList: matchList, teams: teams)
+            }
+            .store(in: &cancellables)
+    }
+    
+    func fetchDataFromServer(enableHandling: Bool) {
         let combinedPublisher = Publishers.CombineLatest(
             matchService.fetchMatches(),
             teamService.fetchTeams()
@@ -68,19 +111,115 @@ extension MatchListViewModel {
                 guard let self = self else { return }
                 let matchList = receivedObject.0
                 let teams = receivedObject.1
-                var matches = self.matchPhase == .previous ? matchList.previous : matchList.upcoming
+                self.deleteAllLocalData()
                 
-                for (index, match) in matches.enumerated() {
-                    matches[index].homeTeam = teams.first(where: { $0.name == match.home.trimmingCharacters(in: .whitespaces) })
-                    matches[index].awayTeam = teams.first(where: { $0.name == match.away.trimmingCharacters(in: .whitespaces) })
+                self.saveMatchList(matchList)
+                self.saveTeams(teams)
+                
+                if enableHandling {
+                    self.handleReceivedData(matchList: matchList, teams: teams)
                 }
-                
-                self.groupedMatches = self.groupMatches(matches)
-                self.teams = teams
-                self.matches = matches
             }
             .store(in: &cancellables)
+    }
+}
+
+// MARK: - Local data handlers
+
+private extension MatchListViewModel {
+    func saveMatchList(_ matchList: MatchList) {
+        let action: Action = { [weak self] in
+            guard let self = self else { return }
+            let matchListEntity: MatchListEntity = self.coreDataStore.createEntity()
+            
+            let previous = matchList.previous.map {
+                let match: MatchEntity = self.coreDataStore.createEntity()
+                match.match = $0
+                return match
+            }
+            
+            let upcoming = matchList.upcoming.map {
+                let match: MatchEntity = self.coreDataStore.createEntity()
+                match.match = $0
+                return match
+            }
+            
+            matchListEntity.previous = NSSet(array: previous)
+            matchListEntity.upcoming = NSSet(array: upcoming)
+        }
         
+        coreDataStore
+            .publicher(save: action)
+            .sink { completion in
+                if case .failure(let error) = completion {
+                    print("[CORE DATA]: \(error)")
+                }
+            } receiveValue: { success in
+                print("[CORE DATA]: Save match list successfully")
+            }
+            .store(in: &cancellables)
+    }
+    
+    func saveTeams(_ teams: [Team]) {
+        let action: Action = { [weak self] in
+            guard let self = self else { return }
+            let teamList: TeamListEntity = self.coreDataStore.createEntity()
+            
+            let teamEntities = teams.map {
+                let team: TeamEntity = self.coreDataStore.createEntity()
+                team.team = $0
+                return team
+            }
+            teamList.teams = NSSet(array: teamEntities)
+        }
+        
+        coreDataStore
+            .publicher(save: action)
+            .sink { completion in
+                if case .failure(let error) = completion {
+                    print("[CORE DATA]: \(error)")
+                }
+            } receiveValue: { success in
+                print("[CORE DATA]: Save team list successfully")
+            }
+            .store(in: &cancellables)
+    }
+    
+    func deleteAllLocalData() {
+        let matchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: MatchListEntity.entityName)
+        let teamListRequest = NSFetchRequest<NSFetchRequestResult>(entityName: TeamListEntity.entityName)
+        
+        let localDataPublishers = Publishers.CombineLatest(
+            coreDataStore.publicher(delete: matchRequest),
+            coreDataStore.publicher(delete: teamListRequest)
+        )
+        
+        localDataPublishers
+            .sink { completion in
+                if case .failure(let error) = completion {
+                    print("[CORE DATA]: \(error)")
+                }
+            } receiveValue: { _ in
+            }
+            .store(in: &cancellables)
+    }
+}
+
+// MARK: - Handlers
+
+private extension MatchListViewModel {
+    func handleReceivedData(matchList: MatchList?, teams: [Team]) {
+        guard let matchList = matchList else { return }
+        var matches = self.matchPhase == .previous ? matchList.previous : matchList.upcoming
+        
+        for (index, match) in matches.enumerated() {
+            matches[index].homeTeam = teams.first(where: { $0.name == match.home.trimmingCharacters(in: .whitespaces) })
+            matches[index].awayTeam = teams.first(where: { $0.name == match.away.trimmingCharacters(in: .whitespaces) })
+        }
+        
+        self.groupedMatches = self.groupMatches(matches)
+        self.teams = teams
+        self.matches = matches
     }
 }
 
