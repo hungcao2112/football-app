@@ -11,7 +11,7 @@ An iOS football app that shows matches and highlights, built with UIKit, Combine
 
 | Home screen  | Filter bottom view | Detail view | Highlights | Offline mode |
 | ------------- | ------------- | ------------- | ------------- | ------------- |
-| ![RPReplay_Final1704594483](https://github.com/hungcao2112/football-app/assets/22310133/4d064596-29fd-4aa9-a23e-d92854fd1ec5) | ![RPReplay_Final1704594500](https://github.com/hungcao2112/football-app/assets/22310133/a4c306f1-4c99-45c7-9eb5-796cd7559289) | ![RPReplay_Final1704594535](https://github.com/hungcao2112/football-app/assets/22310133/06e2d45e-d909-4669-8188-1fd9f36a5025) | ![RPReplay_Final1704594521](https://github.com/hungcao2112/football-app/assets/22310133/841b798e-433d-4521-8d35-6c43f59c4ca5) | ![RPReplay_Final1704594483](https://github.com/hungcao2112/football-app/assets/22310133/26a1ac95-ec38-437b-8757-f59de7d060ff) |
+| ![RPReplay_Final1704594483](https://github.com/hungcao2112/football-app/assets/22310133/4d064596-29fd-4aa9-a23e-d92854fd1ec5) | ![RPReplay_Final1704594500](https://github.com/hungcao2112/football-app/assets/22310133/a4c306f1-4c99-45c7-9eb5-796cd7559289) | ![RPReplay_Final1704782541](https://github.com/hungcao2112/football-app/assets/22310133/cc154769-aa48-4e64-a571-74616b37be2b) | ![RPReplay_Final1704594521](https://github.com/hungcao2112/football-app/assets/22310133/841b798e-433d-4521-8d35-6c43f59c4ca5) | ![RPReplay_Final1704594483](https://github.com/hungcao2112/football-app/assets/22310133/26a1ac95-ec38-437b-8757-f59de7d060ff) |
 
 ## 5. Issues 
 
@@ -27,16 +27,4 @@ This experience helped me learn a lot about CoreData, about its managed objects 
 - I've pushed the project to my Github repository, in case you can't open it from the zip file
   
 https://github.com/hungcao2112/football-app
-
-
-
-
-
-
-
-
-
-
-
-
 
