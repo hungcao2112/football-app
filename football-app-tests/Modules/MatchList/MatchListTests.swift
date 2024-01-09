@@ -31,7 +31,7 @@ class MatchListTests: XCTestCase {
 extension MatchListTests {
     
     func testFetchPreviousMatchSuccess() {
-        // given
+        // Given
         viewModel = MatchListViewModel(
             matchPhase: .previous,
             matchService: matchService,
@@ -66,7 +66,7 @@ extension MatchListTests {
     }
     
     func testFetchUpcomingMatchSuccess() {
-        // given
+        // Given
         viewModel = MatchListViewModel(
             matchPhase: .upcoming,
             matchService: matchService,
