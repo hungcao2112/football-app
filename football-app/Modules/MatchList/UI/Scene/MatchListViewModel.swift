@@ -15,7 +15,7 @@ enum ListViewModelState {
     case error(Error)
 }
 
-class MatchListViewModel: MatchListViewModelProtocol {
+public class MatchListViewModel: MatchListViewModelProtocol {
     private let matchPhase: MatchPhase
     private let matchService: MatchServiceProtocol
     private let teamService: TeamServiceProtocol

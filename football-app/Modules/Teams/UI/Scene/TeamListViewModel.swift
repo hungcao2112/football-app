@@ -13,12 +13,14 @@ class TeamListViewModel {
         case teams
     }
     
-    private var service: TeamServiceProtocol
+    private let service: TeamServiceProtocol
     
     @Published private(set) var teams: [Team] = []
+    @Published private(set) var state: ListViewModelState = .loading
+    
+    private var cancellables = Set<AnyCancellable>()
     
     var teamSelectedSubject = PassthroughSubject<[Team], Never>()
-    
     var title: String = ""
     
     init(
@@ -28,6 +30,27 @@ class TeamListViewModel {
         self.teams = teams
         self.title = "Select teams"
         self.service = service
+    }
+}
+
+// MARK: - Fetch data
+
+extension TeamListViewModel {
+    func fetchData() {
+        service.fetchTeams()
+            .sink { [weak self] completion in
+                guard let self = self else { return }
+                switch completion {
+                case .finished:
+                    self.state = .finishedLoading
+                case .failure(let error):
+                    self.state = .error(error)
+                }
+            } receiveValue: { [weak self] teams in
+                guard let self = self else { return }
+                self.teams = teams
+            }
+            .store(in: &cancellables)
     }
 }
 

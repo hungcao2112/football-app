@@ -50,8 +50,26 @@
 		110BFC062B4A0C2B0021B151 /* TeamEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110BFC052B4A0C2B0021B151 /* TeamEntity.swift */; };
 		110BFC2B2B4A27360021B151 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110BFC2A2B4A27360021B151 /* String+Ext.swift */; };
 		110BFC2D2B4A30710021B151 /* CoreDataDeleteModelPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110BFC2C2B4A30710021B151 /* CoreDataDeleteModelPublisher.swift */; };
+		112D91E02B4CDEC700146C89 /* football_app_tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112D91DF2B4CDEC700146C89 /* football_app_tests.swift */; };
+		112D91EA2B4CE3C700146C89 /* MockMatchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112D91E92B4CE3C700146C89 /* MockMatchService.swift */; };
+		112D91EE2B4CEB4900146C89 /* MockMatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112D91ED2B4CEB4900146C89 /* MockMatch.swift */; };
+		112D91F02B4CEB5000146C89 /* MockMatchList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112D91EF2B4CEB5000146C89 /* MockMatchList.swift */; };
+		112D91F32B4CEF0900146C89 /* MatchListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112D91F22B4CEF0900146C89 /* MatchListTests.swift */; };
+		112D91F92B4CF06000146C89 /* MockTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112D91F82B4CF06000146C89 /* MockTeam.swift */; };
+		112D91FB2B4CF12600146C89 /* MockTeamService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112D91FA2B4CF12600146C89 /* MockTeamService.swift */; };
+		112D91FD2B4CFBF800146C89 /* TeamListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112D91FC2B4CFBF800146C89 /* TeamListTests.swift */; };
 		58389D57A1E8EA70CE9842E7 /* Pods_football_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF03CD96F4100FCA2F70CD7C /* Pods_football_app.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		112D91E12B4CDEC700146C89 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 110BFB802B47639A0021B151 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 110BFB872B47639B0021B151;
+			remoteInfo = "football-app";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		110BFB882B47639B0021B151 /* football-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "football-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -99,6 +117,15 @@
 		110BFC052B4A0C2B0021B151 /* TeamEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamEntity.swift; sourceTree = "<group>"; };
 		110BFC2A2B4A27360021B151 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		110BFC2C2B4A30710021B151 /* CoreDataDeleteModelPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataDeleteModelPublisher.swift; sourceTree = "<group>"; };
+		112D91DD2B4CDEC700146C89 /* football-app-tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "football-app-tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		112D91DF2B4CDEC700146C89 /* football_app_tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = football_app_tests.swift; sourceTree = "<group>"; };
+		112D91E92B4CE3C700146C89 /* MockMatchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMatchService.swift; sourceTree = "<group>"; };
+		112D91ED2B4CEB4900146C89 /* MockMatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMatch.swift; sourceTree = "<group>"; };
+		112D91EF2B4CEB5000146C89 /* MockMatchList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMatchList.swift; sourceTree = "<group>"; };
+		112D91F22B4CEF0900146C89 /* MatchListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchListTests.swift; sourceTree = "<group>"; };
+		112D91F82B4CF06000146C89 /* MockTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTeam.swift; sourceTree = "<group>"; };
+		112D91FA2B4CF12600146C89 /* MockTeamService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTeamService.swift; sourceTree = "<group>"; };
+		112D91FC2B4CFBF800146C89 /* TeamListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamListTests.swift; sourceTree = "<group>"; };
 		7FB07ADA3C89C66C7B78D570 /* Pods-football-app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-football-app.debug.xcconfig"; path = "Target Support Files/Pods-football-app/Pods-football-app.debug.xcconfig"; sourceTree = "<group>"; };
 		87DC3CC7599EC1794F4E1E7D /* Pods-football-app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-football-app.release.xcconfig"; path = "Target Support Files/Pods-football-app/Pods-football-app.release.xcconfig"; sourceTree = "<group>"; };
 		DF03CD96F4100FCA2F70CD7C /* Pods_football_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_football_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -113,6 +140,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		112D91DA2B4CDEC700146C89 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -120,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				110BFB8A2B47639B0021B151 /* football-app */,
+				112D91DE2B4CDEC700146C89 /* football-app-tests */,
 				110BFB892B47639B0021B151 /* Products */,
 				6011D6A2D9122D2863684798 /* Pods */,
 				93EB7EB4A4129636D3F5F02B /* Frameworks */,
@@ -130,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				110BFB882B47639B0021B151 /* football-app.app */,
+				112D91DD2B4CDEC700146C89 /* football-app-tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -141,8 +177,7 @@
 				110BFBB82B477F1D0021B151 /* Core */,
 				110BFBB52B477C1A0021B151 /* Constant */,
 				110BFBB22B477B810021B151 /* Dependency */,
-				110BFBA22B4764080021B151 /* MatchList */,
-				110BFBE02B48C9AC0021B151 /* Teams */,
+				112D91E62B4CE35000146C89 /* Modules */,
 				110BFB8B2B47639B0021B151 /* AppDelegate.swift */,
 				110BFB8D2B47639B0021B151 /* SceneDelegate.swift */,
 				110BFB972B47639C0021B151 /* Assets.xcassets */,
@@ -345,6 +380,86 @@
 			path = CoreData;
 			sourceTree = "<group>";
 		};
+		112D91DE2B4CDEC700146C89 /* football-app-tests */ = {
+			isa = PBXGroup;
+			children = (
+				112D91E72B4CE38C00146C89 /* Modules */,
+				112D91DF2B4CDEC700146C89 /* football_app_tests.swift */,
+			);
+			path = "football-app-tests";
+			sourceTree = "<group>";
+		};
+		112D91E62B4CE35000146C89 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				110BFBA22B4764080021B151 /* MatchList */,
+				110BFBE02B48C9AC0021B151 /* Teams */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		112D91E72B4CE38C00146C89 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				112D91EC2B4CE57A00146C89 /* MatchList */,
+				112D91F42B4CF00900146C89 /* Teams */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		112D91E82B4CE3A900146C89 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				112D91E92B4CE3C700146C89 /* MockMatchService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		112D91EB2B4CE56E00146C89 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				112D91ED2B4CEB4900146C89 /* MockMatch.swift */,
+				112D91EF2B4CEB5000146C89 /* MockMatchList.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		112D91EC2B4CE57A00146C89 /* MatchList */ = {
+			isa = PBXGroup;
+			children = (
+				112D91EB2B4CE56E00146C89 /* Model */,
+				112D91E82B4CE3A900146C89 /* Service */,
+				112D91F22B4CEF0900146C89 /* MatchListTests.swift */,
+			);
+			path = MatchList;
+			sourceTree = "<group>";
+		};
+		112D91F42B4CF00900146C89 /* Teams */ = {
+			isa = PBXGroup;
+			children = (
+				112D91F52B4CF03400146C89 /* Model */,
+				112D91F72B4CF04200146C89 /* Service */,
+				112D91FC2B4CFBF800146C89 /* TeamListTests.swift */,
+			);
+			path = Teams;
+			sourceTree = "<group>";
+		};
+		112D91F52B4CF03400146C89 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				112D91F82B4CF06000146C89 /* MockTeam.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		112D91F72B4CF04200146C89 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				112D91FA2B4CF12600146C89 /* MockTeamService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		6011D6A2D9122D2863684798 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -384,6 +499,24 @@
 			productReference = 110BFB882B47639B0021B151 /* football-app.app */;
 			productType = "com.apple.product-type.application";
 		};
+		112D91DC2B4CDEC700146C89 /* football-app-tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 112D91E52B4CDEC700146C89 /* Build configuration list for PBXNativeTarget "football-app-tests" */;
+			buildPhases = (
+				112D91D92B4CDEC700146C89 /* Sources */,
+				112D91DA2B4CDEC700146C89 /* Frameworks */,
+				112D91DB2B4CDEC700146C89 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				112D91E22B4CDEC700146C89 /* PBXTargetDependency */,
+			);
+			name = "football-app-tests";
+			productName = "football-app-tests";
+			productReference = 112D91DD2B4CDEC700146C89 /* football-app-tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -396,6 +529,10 @@
 				TargetAttributes = {
 					110BFB872B47639B0021B151 = {
 						CreatedOnToolsVersion = 15.0.1;
+					};
+					112D91DC2B4CDEC700146C89 = {
+						CreatedOnToolsVersion = 15.0.1;
+						TestTargetID = 110BFB872B47639B0021B151;
 					};
 				};
 			};
@@ -413,6 +550,7 @@
 			projectRoot = "";
 			targets = (
 				110BFB872B47639B0021B151 /* football-app */,
+				112D91DC2B4CDEC700146C89 /* football-app-tests */,
 			);
 		};
 /* End PBXProject section */
@@ -424,6 +562,13 @@
 			files = (
 				110BFB9B2B47639C0021B151 /* LaunchScreen.storyboard in Resources */,
 				110BFB982B47639C0021B151 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		112D91DB2B4CDEC700146C89 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -520,7 +665,30 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		112D91D92B4CDEC700146C89 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				112D91FD2B4CFBF800146C89 /* TeamListTests.swift in Sources */,
+				112D91F32B4CEF0900146C89 /* MatchListTests.swift in Sources */,
+				112D91EE2B4CEB4900146C89 /* MockMatch.swift in Sources */,
+				112D91F92B4CF06000146C89 /* MockTeam.swift in Sources */,
+				112D91F02B4CEB5000146C89 /* MockMatchList.swift in Sources */,
+				112D91E02B4CDEC700146C89 /* football_app_tests.swift in Sources */,
+				112D91EA2B4CE3C700146C89 /* MockMatchService.swift in Sources */,
+				112D91FB2B4CF12600146C89 /* MockTeamService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		112D91E22B4CDEC700146C89 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 110BFB872B47639B0021B151 /* football-app */;
+			targetProxy = 112D91E12B4CDEC700146C89 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		110BFB992B47639C0021B151 /* LaunchScreen.storyboard */ = {
@@ -711,6 +879,44 @@
 			};
 			name = Release;
 		};
+		112D91E32B4CDEC700146C89 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = BP69SDJPPD;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hungcao.football-app-tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/football-app.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/football-app";
+			};
+			name = Debug;
+		};
+		112D91E42B4CDEC700146C89 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = BP69SDJPPD;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hungcao.football-app-tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/football-app.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/football-app";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -728,6 +934,15 @@
 			buildConfigurations = (
 				110BFBA02B47639C0021B151 /* Debug */,
 				110BFBA12B47639C0021B151 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		112D91E52B4CDEC700146C89 /* Build configuration list for PBXNativeTarget "football-app-tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				112D91E32B4CDEC700146C89 /* Debug */,
+				112D91E42B4CDEC700146C89 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
