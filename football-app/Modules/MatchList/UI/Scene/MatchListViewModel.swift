@@ -111,7 +111,7 @@ extension MatchListViewModel {
                 guard let self = self else { return }
                 let matchList = receivedObject.0
                 let teams = receivedObject.1
-                let configMatchList = self.handleConfigureMatches(
+                let configMatchList = self.generateMatchListWithTeam(
                     matchList: matchList,
                     teams: teams
                 )
@@ -211,7 +211,7 @@ private extension MatchListViewModel {
 // MARK: - Handlers
 
 private extension MatchListViewModel {
-    func handleConfigureMatches(matchList: MatchList?, teams: [Team]) -> MatchList {
+    func generateMatchListWithTeam(matchList: MatchList?, teams: [Team]) -> MatchList {
         var previous = matchList?.previous ?? []
         for (index, match) in previous.enumerated() {
             previous[index].homeTeam = teams.first(where: { $0.name == match.home.trimmingCharacters(in: .whitespaces) })
@@ -229,12 +229,6 @@ private extension MatchListViewModel {
     func handleReceivedData(matchList: MatchList?, teams: [Team]) {
         guard let matchList = matchList else { return }
         var matches = self.matchPhase == .previous ? matchList.previous : matchList.upcoming
-        
-//        for (index, match) in matches.enumerated() {
-//            matches[index].homeTeam = teams.first(where: { $0.name == match.home.trimmingCharacters(in: .whitespaces) })
-//            matches[index].awayTeam = teams.first(where: { $0.name == match.away.trimmingCharacters(in: .whitespaces) })
-//        }
-        
         self.groupedMatches = self.groupMatches(matches)
         self.teams = teams
         self.matches = matches
