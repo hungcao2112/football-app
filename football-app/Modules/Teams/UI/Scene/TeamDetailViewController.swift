@@ -11,21 +11,28 @@ import Combine
 class TeamDetailViewController: ViewController {
     var viewModel: TeamDetailViewModel!
     
-    lazy var teamImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
-        imageView.layer.cornerRadius = 15
-        return imageView
+    lazy var collectionView: UICollectionView = {
+        let layout = UICollectionViewCompositionalLayout() { sectionIndex, layoutEnvironment in
+            var config = UICollectionLayoutListConfiguration(appearance: .plain)
+            config.backgroundColor = UIColor.white
+            config.headerMode = .supplementary
+            config.showsSeparators = false
+            let section = NSCollectionLayoutSection.list(using: config, layoutEnvironment: layoutEnvironment)
+            let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(200))
+            let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(
+                layoutSize: headerSize,
+                elementKind: UICollectionView.elementKindSectionHeader, alignment: .top
+            )
+            section.boundarySupplementaryItems = [sectionHeader]
+            return section
+        }
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        return collectionView
     }()
     
-    lazy var teamNameLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 18)
-        label.textColor = .black
-        label.textAlignment = .center
-        return label
-    }()
+    lazy var activityIndicationView = ActivityIndicatorView(style: .medium)
     
+    private var dataSource: UICollectionViewDiffableDataSource<TeamDetailViewModel.Section, Match>!
     private var cancellables = Set<AnyCancellable>()
 }
 
@@ -36,6 +43,7 @@ extension TeamDetailViewController {
         super.viewDidLoad()
         setup()
         bind()
+        fetchData()
     }
 }
 
@@ -45,22 +53,35 @@ extension TeamDetailViewController {
     func setup() {
         setTitle(viewModel.title)
         setupLayout()
+        setupCollectionView()
+        configureDataSource()
     }
     
     func setupLayout() {
-        view.addSubview(teamImageView)
-        view.addSubview(teamNameLabel)
+        view.addSubview(collectionView)
+        view.addSubview(activityIndicationView)
         
-        teamImageView.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(16)
-            make.centerX.equalToSuperview()
-            make.width.height.equalTo(100)
+        collectionView.snp.makeConstraints { make in
+            make.edges.equalTo(self.view.safeAreaLayoutGuide)
         }
         
-        teamNameLabel.snp.makeConstraints { make in
-            make.top.equalTo(teamImageView.snp.bottom).offset(16)
-            make.left.right.equalToSuperview().inset(16)
+        activityIndicationView.snp.makeConstraints { make in
+            make.centerX.centerY.equalToSuperview()
+            make.width.height.equalTo(50)
         }
+    }
+    
+    func setupCollectionView() {
+        collectionView.backgroundColor = .white
+        collectionView.register(
+            TeamDetailHeaderView.self,
+            forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+            withReuseIdentifier: TeamDetailHeaderView.reuseIdentifier
+        )
+        collectionView.register(
+            TeamDetailCell.self,
+            forCellWithReuseIdentifier: TeamDetailCell.reuseIdentifier
+        )
     }
 }
 
@@ -68,17 +89,55 @@ extension TeamDetailViewController {
 
 private extension TeamDetailViewController {
     func bind() {
-        viewModel.$imageUrl
+        viewModel.$matches
             .receive(on: RunLoop.main)
-            .sink { [weak self] url in
+            .sink { [weak self] _ in
                 guard let self = self else { return }
-                self.teamImageView.kf.setImage(with: url)
+                self.applySnapshot()
             }
             .store(in: &cancellables)
+    }
+}
+
+// MARK: - Fetch data
+
+private extension TeamDetailViewController {
+    func fetchData() {
+        viewModel.fetchData()
+    }
+}
+
+// MARK: - UICollectionViewDataSource
+
+extension TeamDetailViewController {
+    private func configureDataSource() {
+        dataSource = UICollectionViewDiffableDataSource<TeamDetailViewModel.Section, Match>(collectionView: collectionView) { [weak self] collectionView, indexPath, match in
+            guard let self = self else {
+                fatalError()
+            }
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TeamDetailCell.reuseIdentifier, for: indexPath) as! TeamDetailCell
+            cell.viewModel = self.viewModel.getTeamDetailCellViewModel(match: match)
+            return cell
+        }
         
-        viewModel.$teamName
-            .receive(on: RunLoop.main)
-            .assign(to: \.text, on: teamNameLabel)
-            .store(in: &cancellables)
+        dataSource.supplementaryViewProvider = { [weak self] collectionView, kind, indexPath in
+            guard let self = self else {
+                fatalError()
+            }
+            let header = collectionView.dequeueReusableSupplementaryView(
+                ofKind: kind,
+                withReuseIdentifier: TeamDetailHeaderView.reuseIdentifier,
+                for: indexPath
+            ) as! TeamDetailHeaderView
+            header.viewModel = viewModel.getTeamDetailHeaderViewModel()
+            return header
+        }
+    }
+    
+    private func applySnapshot() {
+        var snapshot = NSDiffableDataSourceSnapshot<TeamDetailViewModel.Section, Match>()
+        snapshot.appendSections([.matches])
+        snapshot.appendItems(viewModel.matches, toSection: .matches)
+        dataSource.apply(snapshot, animatingDifferences: false)
     }
 }

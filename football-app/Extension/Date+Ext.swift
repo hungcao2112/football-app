@@ -14,6 +14,12 @@ extension Date {
         return dateFormatter.string(from: self)
     }
     
+    func toDateAndTimeString() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd MMM yyyy h:mm a"
+        return dateFormatter.string(from: self)
+    }
+    
     func toDateString() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd MMM yyyy"

@@ -111,13 +111,16 @@ extension MatchListViewModel {
                 guard let self = self else { return }
                 let matchList = receivedObject.0
                 let teams = receivedObject.1
+                let configMatchList = self.handleConfigureMatches(
+                    matchList: matchList,
+                    teams: teams
+                )
                 self.deleteAllLocalData()
-                
-                self.saveMatchList(matchList)
+                self.saveMatchList(configMatchList)
                 self.saveTeams(teams)
                 
                 if enableHandling {
-                    self.handleReceivedData(matchList: matchList, teams: teams)
+                    self.handleReceivedData(matchList: configMatchList, teams: teams)
                 }
             }
             .store(in: &cancellables)
@@ -208,14 +211,29 @@ private extension MatchListViewModel {
 // MARK: - Handlers
 
 private extension MatchListViewModel {
+    func handleConfigureMatches(matchList: MatchList?, teams: [Team]) -> MatchList {
+        var previous = matchList?.previous ?? []
+        for (index, match) in previous.enumerated() {
+            previous[index].homeTeam = teams.first(where: { $0.name == match.home.trimmingCharacters(in: .whitespaces) })
+            previous[index].awayTeam = teams.first(where: { $0.name == match.away.trimmingCharacters(in: .whitespaces) })
+        }
+        
+        var upcoming = matchList?.upcoming ?? []
+        for (index, match) in upcoming.enumerated() {
+            upcoming[index].homeTeam = teams.first(where: { $0.name == match.home.trimmingCharacters(in: .whitespaces) })
+            upcoming[index].awayTeam = teams.first(where: { $0.name == match.away.trimmingCharacters(in: .whitespaces) })
+        }
+        return MatchList(previous: previous, upcoming: upcoming)
+    }
+    
     func handleReceivedData(matchList: MatchList?, teams: [Team]) {
         guard let matchList = matchList else { return }
         var matches = self.matchPhase == .previous ? matchList.previous : matchList.upcoming
         
-        for (index, match) in matches.enumerated() {
-            matches[index].homeTeam = teams.first(where: { $0.name == match.home.trimmingCharacters(in: .whitespaces) })
-            matches[index].awayTeam = teams.first(where: { $0.name == match.away.trimmingCharacters(in: .whitespaces) })
-        }
+//        for (index, match) in matches.enumerated() {
+//            matches[index].homeTeam = teams.first(where: { $0.name == match.home.trimmingCharacters(in: .whitespaces) })
+//            matches[index].awayTeam = teams.first(where: { $0.name == match.away.trimmingCharacters(in: .whitespaces) })
+//        }
         
         self.groupedMatches = self.groupMatches(matches)
         self.teams = teams

@@ -40,11 +40,18 @@ extension MatchEntity {
             self.away = newValue.away
             self.winner = newValue.winner
             self.highlights = newValue.highlights
+            
+            let coreDataStore: CoreDataStoring = CoreDataStore.default
+            let homeTeamEntity: TeamEntity = coreDataStore.createEntity()
+            let awayTeamEntity: TeamEntity = coreDataStore.createEntity()
+            
             if let homeTeam = newValue.homeTeam {
-                self.homeTeam?.team = homeTeam
+                homeTeamEntity.team = homeTeam
+                self.homeTeam = homeTeamEntity
             }
             if let awayTeam = newValue.awayTeam {
-                self.awayTeam?.team = awayTeam
+                awayTeamEntity.team = awayTeam
+                self.awayTeam = awayTeamEntity
             }
         }
     }
